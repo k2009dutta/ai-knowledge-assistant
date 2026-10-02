@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from app.llm import generate_answer
 
 app = FastAPI(
     title="AI Knowledge Assistant",
-    version="1.0"
+    version="1.1"
 )
 
 class AskRequest(BaseModel):
@@ -27,7 +28,9 @@ def health():
 
 @app.post("/ask", response_model=AskResponse)
 def ask(request: AskRequest):
+    answer = generate_answer(request.question)
+    
     return {
         "question": request.question,
-        "answer": "LLM integration will come next"
+        "answer": answer
     }
