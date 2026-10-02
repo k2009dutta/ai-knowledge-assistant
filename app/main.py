@@ -16,7 +16,7 @@ class AskResponse(BaseModel):
 @app.get("/")
 def root():
     return {
-        "message": "AI Knowledge Assistant is running."
+        "message": "AI Knowledge Assistant is running"
     }
 
 @app.get("/health")
@@ -29,5 +29,5 @@ def health():
 def ask(request: AskRequest):
     return {
         "question": request.question,
-        "answer": "LLM integration will come next."
+        "answer": "LLM integration will come next"
     }
