@@ -27,5 +27,5 @@ def generate_answer(question: str) -> str:
     
     except Exception as exc:
         raise RuntimeError(
-            f"LLM service is unvailable: {exc}"
+            f"LLM service is unavailable: {exc}"
         )
