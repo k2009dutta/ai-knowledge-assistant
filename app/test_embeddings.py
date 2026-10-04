@@ -1,5 +1,5 @@
-# Test embedding generation and cosine similarity to demonstrate semantic similarity
-# between a query and sample documents.
+# Demonstrates text-to-vector embedding generation and cosine similarity.
+# Compares a user query with sample documents to show semantic matching.
 
 from app.embeddings import generate_embedding
 from app.similarity import cosine_similarity

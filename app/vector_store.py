@@ -5,7 +5,7 @@ import chromadb
 from app.embeddings import generate_embedding
 
 client = chromadb.PersistentClient(
-    path="./chrome_db"
+    path="./chroma_db"
 )
 
 collection = client.get_or_create_collection(
