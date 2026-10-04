@@ -1,3 +1,6 @@
+# Test embedding generation and cosine similarity to demonstrate semantic similarity
+# between a query and sample documents.
+
 from app.embeddings import generate_embedding
 from app.similarity import cosine_similarity
 

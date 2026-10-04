@@ -1,3 +1,5 @@
+# Generates vector embeddings for text using the local Ollama embedding model.
+
 from ollama import embed
 
 EMBEDDING_MODEL = "nomic-embed-text"

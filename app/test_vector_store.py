@@ -1,3 +1,6 @@
+# Test ChromaDB vector storage by adding sample documents and retrieving the
+# most relevant documents for a query.
+
 from app.vector_store import add_document, search_documents
 
 documents = [

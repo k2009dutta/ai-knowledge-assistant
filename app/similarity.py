@@ -1,3 +1,6 @@
+# Calculates cosine similarity between two embedding vectors
+# to measure semantic relatedness.
+
 import math
 
 def cosine_similarity(vector_a, vector_b):

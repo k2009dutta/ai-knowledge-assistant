@@ -1,3 +1,6 @@
+# Provides the vector-store layer for storing document embeddings and
+# performing semantic search with ChromaDB.
+
 import chromadb
 from app.embeddings import generate_embedding
 

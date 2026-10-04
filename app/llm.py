@@ -1,3 +1,6 @@
+# Handles LLM interaction, including system prompting,
+# model configuration, usage tracking, and tool definitions.
+
 from ollama import chat
 from pydantic import BaseModel
 from app.config import LLM_MODEL, LLM_TEMPERATURE
