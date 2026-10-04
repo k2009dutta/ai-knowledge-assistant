@@ -10,9 +10,15 @@ app = FastAPI(
 class AskRequest(BaseModel):
     question: str
 
+class Usage(BaseModel):
+    input_tokens: int
+    output_tokens: int
+
 class AskResponse(BaseModel):
     question: str
     answer: str
+    model: str
+    usage: Usage
 
 @app.get("/")
 def root():
@@ -28,9 +34,14 @@ def health():
 
 @app.post("/ask", response_model=AskResponse)
 def ask(request: AskRequest):
-    answer = generate_answer(request.question)
+    result = generate_answer(request.question)
     
     return {
         "question": request.question,
-        "answer": answer
+        "answer": result.answer,
+        "model": result.model,
+        "usage": {
+            "input_tokens": result.input_tokens,
+            "output_tokens": result.output_tokens
+        }
     }
