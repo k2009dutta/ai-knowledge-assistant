@@ -5,10 +5,15 @@ from app.vector_store import add_document, search_documents
 
 documents = [
     (
-        "doc1", "Kubernetes automatically restarts unhealthy containers."
+        "doc1",
+        "Kubernetes automatically restarts unhealthy containers"
+        "when their health checks fail."
     ),
     (
-        "doc2", "Kubernetes recovers failed containers."
+        "doc2",
+        "Kubernetes recovers failed containers."
+        "When a container or pod fails, Kubernetes replaces it to restore"
+        "the desired state"
     ),
     (
         "doc3", "Amazon S3 provides object storage."

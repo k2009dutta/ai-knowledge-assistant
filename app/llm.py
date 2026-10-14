@@ -51,12 +51,11 @@ def generate_answer(question: str) -> LLMResult:
                     "content": question
                 }
             ],
-            tools=TOOLS,
             options={
                 "temperature": LLM_TEMPERATURE
             }
         )
-        print(response)
+        # print(response)
         return response.message.content
         # return LLMResult(
         #     answer=response.message.content,

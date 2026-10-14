@@ -1,5 +1,5 @@
-# Provides the vector-store layer for storing document embeddings and
-# performing semantic search with ChromaDB.
+# Provides the vector-store layer for storing document chunks,
+# embeddings, metadata, and performing semantic search with ChromaDB.
 
 import chromadb
 from app.embeddings import generate_embedding
@@ -12,16 +12,22 @@ collection = client.get_or_create_collection(
     name="knowledge_base"
 )
 
-def add_document(document_id: str, text: str):
+def add_chunk(chunk_id: str, text: str, source: str):
     embedding = generate_embedding(text)
 
     collection.add(
-        ids=[document_id],
+        ids=[chunk_id],
         documents=[text],
-        embeddings=[embedding]
+        embeddings=[embedding],
+        metadatas=[
+            {
+                "source": source,
+                "chunk_id": chunk_id
+            }
+        ]
     )
 
-def search_documents(query: str, top_k: int = 2):
+def search_documents(query: str, top_k: int = 3):
     query_embedding = generate_embedding(query)
 
     results = collection.query(

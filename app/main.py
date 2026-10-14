@@ -1,24 +1,27 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from app.llm import generate_answer
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+from app.rag import generate_rag_answer
 
 app = FastAPI(
     title="AI Knowledge Assistant",
-    version="1.1"
+    version="2.0"
 )
 
 class AskRequest(BaseModel):
-    question: str
+    question: str = Field(
+        ...,
+        min_length=3,
+        max_length=500
+    )
 
-class Usage(BaseModel):
-    input_tokens: int
-    output_tokens: int
+class Source(BaseModel):
+    source: str
+    chunk_id: str
 
 class AskResponse(BaseModel):
     question: str
     answer: str
-    model: str
-    usage: Usage
+    sources: list[Source]
 
 @app.get("/")
 def root():
@@ -34,14 +37,17 @@ def health():
 
 @app.post("/ask", response_model=AskResponse)
 def ask(request: AskRequest):
-    result = generate_answer(request.question)
-    
-    return {
-        "question": request.question,
-        "answer": result.answer,
-        "model": result.model,
-        "usage": {
-            "input_tokens": result.input_tokens,
-            "output_tokens": result.output_tokens
+    try:
+        result = generate_rag_answer(request.question)
+        
+        return {
+            "question": request.question,
+            "answer": result["answer"],
+            "sources": result["sources"]
         }
-    }
+    
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            details=f"RAG processing failed: {str(e)}"
+        )
