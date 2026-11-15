@@ -1,8 +1,8 @@
 # Implements the Retrieval-Augmented Generation pipeline.
 # Retrieves relevant documents from ChromaDB and uses them as context for the LLM.
 
-from app.vector_store import search_documents
-from app.llm import generate_answer
+from app.manual.vector_store import search_documents
+from app.manual.llm import generate_answer
 
 def generate_rag_answer(question: str):
     results = search_documents(question, top_k=3)

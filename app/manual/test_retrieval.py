@@ -1,5 +1,5 @@
 # Tests semantic retrieval against the PDF chunks stored in ChromaDB.
-from app.vector_store import search_documents
+from app.manual.vector_store import search_documents
 
 query = "How does Kubernetes recover from a failed container?"
 

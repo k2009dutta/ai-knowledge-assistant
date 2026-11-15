@@ -3,8 +3,8 @@
 
 from ollama import chat
 from pydantic import BaseModel
-from app.config import LLM_MODEL, LLM_TEMPERATURE
-from app.tools import get_cluster_status
+from app.manual.config import LLM_MODEL, LLM_TEMPERATURE
+from app.manual.tools import get_cluster_status
 
 SYSTEM_PROMPT = """
 You are an AI Knowledge Assistant.

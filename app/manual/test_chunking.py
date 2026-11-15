@@ -1,8 +1,8 @@
 # Tests chunking using the actual PDF documents.
 # Loads PDFs, splits their text into overlapping chunks, and displays chunk metadata.
 
-from app.pdf_loader import load_pdfs
-from app.chunking import chunk_text
+from app.manual.pdf_loader import load_pdfs
+from app.manual.chunking import chunk_text
 
 documents = load_pdfs("app/documents")
 

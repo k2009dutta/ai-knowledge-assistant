@@ -1,7 +1,7 @@
 # Demonstrates semantic retrieval using ChromaDB.
 # Stores sample documents, embeds the query, and retrieves the top-K relevant documents.
 
-from app.vector_store import add_document, search_documents
+from app.manual.vector_store import add_document, search_documents
 
 documents = [
     (

@@ -1,7 +1,7 @@
 # Tests PDF ingestion by loading all PDFs from the documents directory
 # and displaying their filenames and extracted text.
 
-from app.pdf_loader import load_pdfs
+from app.manual.pdf_loader import load_pdfs
 
 documents = load_pdfs("app/documents")
 

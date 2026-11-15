@@ -1,8 +1,8 @@
 # Demonstrates text-to-vector embedding generation and cosine similarity.
 # Compares a user query with sample documents to show semantic matching.
 
-from app.embeddings import generate_embedding
-from app.similarity import cosine_similarity
+from app.manual.embeddings import generate_embedding
+from app.manual.similarity import cosine_similarity
 
 documents = [
     "Kubernetes automatically restarts unhealthy containers.",

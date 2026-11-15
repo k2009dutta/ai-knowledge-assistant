@@ -1,9 +1,9 @@
 # Ingests PDF documents into ChromaDB.
 # Extracts text, creates chunks, generates embeddings, and stores metadata.
 
-from app.pdf_loader import load_pdfs
-from app.chunking import chunk_text
-from app.vector_store import add_chunk
+from app.manual.pdf_loader import load_pdfs
+from app.manual.chunking import chunk_text
+from app.manual.vector_store import add_chunk
 
 DOCUMENT_DIRECTORY = "app/documents"
 

@@ -1,7 +1,7 @@
 # Tests the complete RAG flow independently of the FastAPI application.
 # Retrieves relevant documents from ChromaDB and generates a grounded LLM response.
 
-from app.rag import generate_rag_answer
+from app.manual.rag import generate_rag_answer
 
 questions = [
     "How does Kubernetes recover from a failed container?",

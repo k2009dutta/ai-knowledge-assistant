@@ -2,7 +2,7 @@
 # embeddings, metadata, and performing semantic search with ChromaDB.
 
 import chromadb
-from app.embeddings import generate_embedding
+from app.manual.embeddings import generate_embedding
 
 client = chromadb.PersistentClient(
     path="./chroma_db"
