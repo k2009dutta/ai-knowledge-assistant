@@ -7,7 +7,7 @@ def load_pdfs():
     documents = []
 
     for pdf in DOCUMENTS_DIR.glob("*.pdf"):
-        loader = PyPDFLoader(str(pdf_file))
+        loader = PyPDFLoader(str(pdf))
         documents.extend(loader.load())
 
     return documents
